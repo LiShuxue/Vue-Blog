@@ -4,6 +4,7 @@
         <div class="test">
             <h1>Hello, {{sucess}} !</h1>
         </div>
+        <router-view class="view"></router-view>
     </div>
 </template>
 

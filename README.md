@@ -59,4 +59,40 @@
 
 >>4.通过标签使用组件 &lt;nav-bar&gt;&lt;/nav-bar&gt;
 
+<br/>
 
+##第三次提交：添加route，实现点击菜单页面跳转
+
+>### 一、创建route
+
+>>1.创建router.js，像下面这样
+
+>><pre><code>
+    import Vue from 'vue';
+    import VueRouter from 'vueRouter';
+    import Menu1 from './page/menu1';
+    Vue.use(VueRouter);
+    const routes = [
+        {path: '/menu1', name:'menu1', component: Menu1}
+    ];
+    const router = new VueRouter({
+        mode: 'history',
+        routes: routes,
+        history: true
+    });
+    export default router;
+>></code></pre>
+
+>>2.修改main.js，导入route功能
+
+>>3.修改App.vue，通过 &lt;router-view class="view"&gt;&lt;/router-view&gt; 控制新页面显示的位置
+
+>>4.修改navbar.vue，引入创建的router，并通过router.push()方法实现每次点击菜单，跳到不同的路由
+
+>### 二、创建不同的页面
+
+>>1.在router.js中我们引用了多个页面，像这样：import Menu1 from './page/menu1'； 来实现不同的路由显示不同的页面
+
+>>2.所以我们要创建这些个页面。创建多个页面menu.vue，并使用其对应的样式。
+
+>>3.创建其对应的样式表文件page.scss

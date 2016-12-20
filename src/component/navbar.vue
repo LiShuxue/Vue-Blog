@@ -15,25 +15,34 @@
 </template>
 
 <script>
+    import router from '../router';
     export default {
         methods: {
             handleSelect(key, keyPath) {
                 if(key === '1'){
                     console.log('菜单一');
+                    router.push('/menu1');
                 }else if(key === '2'){
                     console.log('菜单二');
+                    router.push('/menu2');
                 }else if(key === '3'){
                     console.log('菜单三');
+                    router.push('/menu3');
                 }else if(key === '4'){
                     console.log('菜单四');
+                    router.push('/menu4');
                 }else if(key === '5'){
                     console.log('菜单五');
+                    router.push('/menu5');
                 }else if(key === '6-1'){
                     console.log('选项1');
+                    router.push('/menu6');
                 }else if(key === '6-2'){
                     console.log('选项2');
+                    router.push('/menu7');
                 }else if(key === '6-3'){
                     console.log('选项3');
+                    router.push('/menu8');
                 }
             }
         }
