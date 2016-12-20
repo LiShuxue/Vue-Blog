@@ -1,15 +1,22 @@
 <template>
-    <div class="test">
-        <h1>Hello, {{sucess}} !</h1>
+    <div>
+        <nav-bar></nav-bar>
+        <div class="test">
+            <h1>Hello, {{sucess}} !</h1>
+        </div>
     </div>
 </template>
 
 <script>
+    import navBar from './component/navbar.vue';
     export default {
         data: function(){
             return {
                 sucess: 'Sucess'
             }
+        },
+        components: {
+            navBar
         }
     }
 </script>
