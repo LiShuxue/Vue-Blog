@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="appContainer" class="app-content">
         <nav-bar></nav-bar>
         <div class="test">
             <h1>Hello, {{sucess}} !</h1>

@@ -96,3 +96,53 @@
 >>2.所以我们要创建这些个页面。创建多个页面menu.vue，并使用其对应的样式。
 
 >>3.创建其对应的样式表文件page.scss
+
+<br/>
+
+##第四次提交：修改route，实现Login和App两个模块
+
+>>系统首先有两个父路由，/login和/app，一个显示登录页面，一个显示真正的应用页面。
+
+>>在/app下面，还会有很多的子路由，来控制应用中跳转到的不同的页面。
+
+>### 一、设计架构
+
+>>1.修改index.html，添加一个&lt;router-view&gt;&lt;/router-view&gt;父路由/login和/app都在这里面渲染
+
+>>2.修改App.vue，添加id和class，使其dom结构更清晰明了。它里面的&lt;router-view class="view"&gt;&lt;/router-view&gt;用来渲染/app下的子路由页面
+
+>>3.修改component/navbar.vue，为其添加一个div，并标注id和class，这样架构清晰而且方便以后使用
+
+>### 二、创建页面
+
+>>1.创建login页面
+
+>>2.创建home页面
+
+>### 三、修改route，来实现这样的设计
+
+>>1.修改router.js文件，实现不同的层级结构.
+
+>><pre><code>
+    const routes = [
+        {path: '/', redirect:'/login'},
+        {path: '/login', name:'login', component: Login},
+        {path: '/app', name:'app', component: App, redirect:'/app/home',
+            children: [
+                {path: '/app/home', name:'home', component: Home},
+                {path: '/app/menu1', name:'menu1', component: Menu1},
+                {path: '/app/menu2', name:'menu2', component: Menu2},
+                {path: '/app/menu3', name:'menu3', component: Menu3},
+                {path: '/app/menu4', name:'menu4', component: Menu4},
+                {path: '/app/menu5', name:'menu5', component: Menu5},
+                {path: '/app/menu6', name:'menu6', component: Menu6},
+                {path: '/app/menu7', name:'menu7', component: Menu7},
+                {path: '/app/menu8', name:'menu8', component: Menu8}
+            ]
+        }
+    ];
+>></code></pre>
+
+>>2.修改component/navbar.vue文件中各个菜单点击的路由跳转，像这样 router.push('/app/menu1');
+
+>>3.修改main.js文件，删除这行代码render: h => h(App)，因为它会直接在#app节点上渲染App组件。这行代码也可以去掉了 import App from './App.vue';
