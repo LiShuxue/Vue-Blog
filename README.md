@@ -146,3 +146,19 @@
 >>2.修改component/navbar.vue文件中各个菜单点击的路由跳转，像这样 router.push('/app/menu1');
 
 >>3.修改main.js文件，删除这行代码render: h => h(App)，因为它会直接在#app节点上渲染App组件。这行代码也可以去掉了 import App from './App.vue';
+
+<br/>
+
+##第五次提交：简单实现登录页面
+
+>### 一、页面UI
+
+>>1.修改login.vue，采用了ElementUI 的el-form, el-input, 以及el-button等组件。注意 :model="login"跟data中的login对象对应
+
+>>2.添加static/css/login-page.scss文件，并简单实现输入框和按钮居中
+
+>### 一、页面事件
+
+>>1.分别给登录和注册按钮添加点击事件userLogin和userRegiste。
+
+>>2.对userLogin事件简单实现，如果用户名密码不为空，登录到app，路由跳转到app。如果有一个为空，就弹窗提示，通过ElementUI 的$alert来调用
