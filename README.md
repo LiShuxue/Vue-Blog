@@ -162,3 +162,43 @@
 >>1.分别给登录和注册按钮添加点击事件userLogin和userRegiste。
 
 >>2.对userLogin事件简单实现，如果用户名密码不为空，登录到app，路由跳转到app。如果有一个为空，就弹窗提示，通过ElementUI 的$alert来调用
+
+<br/>
+
+##第六次提交：引入Vuex
+
+>### 一、store.js
+
+>>1.创建store/store.js，引入Vuex，创建一个store对象，里面包含4个对象state，getters，mutations，actions。如下
+
+>><pre><code>
+    const store = new Vuex.Store({
+        state,
+        getters,
+        mutations,
+        actions
+    })
+>></code></pre>
+
+
+>>2.state对象包含了应用的全部的状态
+
+>>3.通过getters来获得state中的状态，或者是通过这些状态派生出来的一些状态
+
+>>4.如果想修改state中的状态值，只能通过提交mutation的方式
+
+>>5.action用来提交mutation，可以包含异步操作。 action只会被 store.dispatch方法触发。如this.$store.dispatch('xxxAction', 'xxx');
+
+>>6.根据具体需求来写自己的state，getters，mutations，actions
+
+>### 二、在页面展示我们的Vuex效果
+
+>>1.修改main.js，导入我们写好的store。 import store from './store/store.js'; 并在Vue实例中引用
+
+>>2.修改src/page/home.vue
+
+>>3.created方法，提交mutation，来初始化state。 this.$store.commit('changeCommFlag', true);
+
+>>4.computed里面，定义一些计算属性，这些计算属性通过getters来得到。 this.$store.getters.getMessage;
+
+>>5.methods里面，定义了一些方法，去dispatch(分发) action。 this.$store.dispatch('changeCommFlagAction', true);
