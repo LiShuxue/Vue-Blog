@@ -16,7 +16,7 @@
             }
         },
         created: function () {
-            this.$store.commit('changeCommFlag', true);
+            this.$store.commit('CHANGE_COMMFLAG', true);
         },
         computed: {
             testMessage: function(){

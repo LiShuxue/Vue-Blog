@@ -202,3 +202,33 @@
 >>4.computed里面，定义一些计算属性，这些计算属性通过getters来得到。 this.$store.getters.getMessage;
 
 >>5.methods里面，定义了一些方法，去dispatch(分发) action。 this.$store.dispatch('changeCommFlagAction', true);
+
+<br/>
+
+##第七次提交：将store.js中的内容抽取出来，抽取成modules形式
+
+>### 一、抽取mutation-types.js
+
+>>1.创建store/mutation-types.js，使用常量替代 mutation 事件类型，这在各种 Flux 实现中是很常见的模式。如export const CHANGE_COMMFLAG = 'CHANGE_COMMFLAG';
+
+>### 二、抽取成一个module，common.js
+
+>>1.创建store/modules/common.js
+
+>>2.导入mutation-type并命名为types。 import * as types from '../mutation-types';
+
+>>3.创建state，getters，mutations，actions四个对象并导出。
+
+>### 三、展示效果
+
+>>1.修改home.vue，将代码中使用到的mutation改成我们新建的常量类型
+
+>>2.修改store.js，将原来的代码删除。只需导入common.js，并采取下面的方式创建store
+
+>><pre><code>
+    const store = new Vuex.Store({
+        modules: {
+            common
+        }
+    });
+>></code></pre>
